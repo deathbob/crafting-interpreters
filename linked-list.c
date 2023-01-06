@@ -26,12 +26,6 @@ void pnode(Node * n){
   }
   char addr_str[32];
   sprintf(addr_str, "%p", n);
-//  if(n->name == NULL){
-//    printf("node has no name :(  Address is %s", addr_str);
-//  }else{
-//    //    puts("node does have name! Let's see what it is");        
-//    printf("addr of %s : %s", n->name, addr_str);
-//  }
 
   printf("node addr  = %s \n", addr_str);
   p2p("node->name = ", n->name);
@@ -40,23 +34,18 @@ void pnode(Node * n){
   puts("");  
 }
 
-
 typedef struct LinkedList{
   Node * head;
   int size;
 } LinkedList;
 
-int insert(LinkedList* list, Node* toInsert, int idx){
-  // inserts toInsert into head @ idx
 
-  puts("Inserting ");
-  pnode(toInsert);
-  
+int insert(LinkedList* list, Node* toInsert, int idx){
   int i = 0;
   Node* curr = list->head;
 
   if(curr == NULL){
-    puts("   adding to empty list");
+    //    puts("   adding to empty list");
     list->head = toInsert;
     list->size = 1;
     return 0;
@@ -69,10 +58,6 @@ int insert(LinkedList* list, Node* toInsert, int idx){
     }
   }
   if(curr != NULL){
-//    puts("curr2");
-//    pnode(curr);
-//    puts("toInsert");
-//    pnode(toInsert);
     if(idx == 0){
       list->head = toInsert;
     }
@@ -94,7 +79,7 @@ int delete(LinkedList * list, int idx){
     return 0;
   }
   if(list->size < idx){
-    printf("attempting to delete element %d when size is %d, impossible", idx, list->size);
+    printf("attempting to delete element %d when size is %d, impossible\n", idx, list->size);
   }
   while(i < idx){
     i++;
@@ -110,7 +95,6 @@ int delete(LinkedList * list, int idx){
     list->size = list->size - 1;
   }
   return 0;
-  
 }
 
 void p2s(char *str, int num){
@@ -121,8 +105,6 @@ void p2s(char *str, int num){
 }
 
 
-
-
 void walk(LinkedList * l){
   if(l == NULL){
     puts("Null Linked List");
@@ -130,19 +112,19 @@ void walk(LinkedList * l){
   }
   
   Node * head = l->head;
-  puts(" \n Walking ");
+  //  puts(" \n Walking ");
   if(head == NULL){
     puts("empty list");
     return;
   }else{
-    puts("go some kind of list, let's see more");
-    printf("allegedly %d elements", l->size);
+    //    puts("got some kind of list, let's see more");
+    printf("Walking %d elements \n", l->size);
   }
   
   char addr_str[32];
   sprintf(addr_str, "%p", head);
-  printf("addr of head %s", addr_str);
-  puts("");
+  //  printf("addr of head %s", addr_str);
+  //  puts("");
   
   int i = 0;
   Node* curr;
@@ -154,13 +136,12 @@ void walk(LinkedList * l){
     curr = curr->next;
     i++;
   }while(curr != NULL);
-  
 }
 
 
 
 int main() {
-  puts("First i create a node ");    
+  puts("\tFirst i create a node");    
   Node *n1Ptr;
   Node n1;
   n1Ptr = &n1;
@@ -169,43 +150,43 @@ int main() {
   n1Ptr->next = NULL;
   pnode(n1Ptr);
 
-  puts("Then i create an empty list");
+  puts("\tThen i create an empty list");
   LinkedList *listPtr, list;
   listPtr = &list;
   listPtr->head = NULL;
   listPtr->size = 0;
   walk(listPtr);
 
-
-
-  
-
+  puts("\tThen I insert one thing");
   insert(listPtr, n1Ptr, 0);
+  walk(listPtr);
 
+  puts("\tThen I insert a second node at the beginning of the list");  
   Node *n2Ptr, n2;
   n2Ptr = &n2;
   n2Ptr->prev = NULL;
   n2Ptr->next = NULL;
-  puts(" then i insert a node at the beginning of the list \n");
+  n2Ptr->name = "chicken lord";
   insert(listPtr, n2Ptr, 0);
   walk(listPtr);
 
 
-  puts("Create and insert another node at the beginning of the list");
+  puts("\tCreate and insert a third node at the beginning of the list");
   Node *n3Ptr, n3;
   n3Ptr = &n3;
   n3Ptr->prev = NULL;
   n3Ptr->next = NULL;
+  n3Ptr->name = "Love Dogs";
   insert(listPtr, n3Ptr, 0);
   walk(listPtr);
 
 
-  puts(" then i delete something \n");
+  puts("\tThen I delete something element at index 1");
   delete(listPtr, 1);
   walk(listPtr);
 
 
-  puts("let's try deleting something that doesn't exist");
+  puts("\tLet's try deleting something that doesn't exist");
   delete(listPtr, 100);
   walk(listPtr);
   puts("need to practice inserting at beginning and end \n");

@@ -1,0 +1,83 @@
+	First i create a node
+node addr  = 0x7ffee98ad738 
+node->name = asdf 
+node->prev = 0x0
+node->next = 0x0
+
+	Then i create an empty list
+empty list
+	Then I insert one thing
+Walking 1 elements 
+i = 0
+node addr  = 0x7ffee98ad738 
+node->name = asdf 
+node->prev = 0x0
+node->next = 0x0
+
+	Then I insert a second node at the beginning of the list
+Walking 2 elements 
+i = 0
+node addr  = 0x7ffee98ad700 
+node->name = chicken lord 
+node->prev = 0x0
+node->next = 0x7ffee98ad738
+
+i = 1
+node addr  = 0x7ffee98ad738 
+node->name = asdf 
+node->prev = 0x7ffee98ad700
+node->next = 0x0
+
+	Create and insert a third node at the beginning of the list
+Walking 3 elements 
+i = 0
+node addr  = 0x7ffee98ad6e0 
+node->name = Love Dogs 
+node->prev = 0x0
+node->next = 0x7ffee98ad700
+
+i = 1
+node addr  = 0x7ffee98ad700 
+node->name = chicken lord 
+node->prev = 0x7ffee98ad6e0
+node->next = 0x7ffee98ad738
+
+i = 2
+node addr  = 0x7ffee98ad738 
+node->name = asdf 
+node->prev = 0x7ffee98ad700
+node->next = 0x0
+
+	Then I delete something element at index 1
+Walking 2 elements 
+i = 0
+node addr  = 0x7ffee98ad6e0 
+node->name = Love Dogs 
+node->prev = 0x0
+node->next = 0x7ffee98ad738
+
+i = 1
+node addr  = 0x7ffee98ad738 
+node->name = asdf 
+node->prev = 0x7ffee98ad700
+node->next = 0x0
+
+	Let's try deleting something that doesn't exist
+attempting to delete element 100 when size is 2, impossible
+Walking 2 elements 
+i = 0
+node addr  = 0x7ffee98ad6e0 
+node->name = Love Dogs 
+node->prev = 0x0
+node->next = 0x7ffee98ad738
+
+i = 1
+node addr  = 0x7ffee98ad738 
+node->name = asdf 
+node->prev = 0x7ffee98ad700
+node->next = 0x0
+
+need to practice inserting at beginning and end 
+
+need to practice deleting beginning and end too 
+
