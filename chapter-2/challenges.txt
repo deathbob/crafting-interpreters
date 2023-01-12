@@ -1,0 +1,16 @@
+https://craftinginterpreters.com/a-map-of-the-territory.html#challenges
+
+
+1.  https://github.com/denoland/deno_ast
+    Looks like they hand wrote their parser in Rust ?
+    
+
+2.
+  * https://stackoverflow.com/a/13689547
+    * More complicated to JIT, have to compile to Intermediate Language first and then from there compile down to machine code.
+    * Can't optimize "Just In Time" as well as when compiling everything ahead of time.
+  * https://shopify.engineering/when-jit-faster-than-compiler ( this is good, by somebody who works on the ruby jit)
+    * Ruby doesn't / hasn't up until now because it's possible any method could be re-defined at any time.  Makes it hard to comit to a compiled version of things because literally anything could change at any time
+
+3.  I would assume because lisp has `eval` and so running lisp code could require you to eval new lisp code at runtime.  You can't just count on compiling all your code ahead of time, before running a program, because the program itself may dynamically generate some code and eval it.  
+
