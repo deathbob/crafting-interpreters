@@ -1,0 +1,23 @@
+
+
+
+I found getting the java stuff compiled and running confusing.
+
+First i had all the files here in the top level directory, and what is now called "Lox.java" as "jlox.java"
+
+Renamed to "Lox.java" still in this top level dir
+
+Created a "lox" dir, moved there
+
+Finally had to create 'com/craftinginterpreters/lox' dir and put all the files in there
+
+from the Directory /Users/robertlarrick/src/crafting-compilers/chapter-4/ -
+
+
+
+then compile with `javac com/craftinginterpreters/lox/Lox.java`
+
+and then run with `java com/craftinginterpreters/lox/Lox`  why i have to leave the `.java` off when running the program I will never know.
+
+NOTE TO SELF!  Do not assume any local file system layout when writing my own language.  These assumptions are difficult to understand.
+
